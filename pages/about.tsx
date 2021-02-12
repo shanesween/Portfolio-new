@@ -2,11 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import Container from '@material-ui/core/Container'
 import {
   Avatar,
-  Box,
   Button,
-  Card,
-  CardHeader,
-  CardMedia,
   Grid,
   makeStyles,
   Paper,
@@ -17,6 +13,7 @@ import CrossfadeImage from '../src/Crossfade/index'
 import { useTransition, animated, config } from 'react-spring'
 import PhonelinkRingIcon from '@material-ui/icons/PhonelinkRing'
 import EmailIcon from '@material-ui/icons/Email'
+import Head from 'next/head'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,16 +79,20 @@ const About = () => {
   )
 
   return (
-    <Container className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>Get To Know Me</Paper>
-        </Grid>
-        <Grid item container xs={12}>
-          <Paper className={classes.paper}>
-            <Grid container item xs direction="row">
-              <Grid item xs={4}>
-                {/* {transitions.map(({ item, props, key }) => (
+    <>
+      <Head>
+        <title>About | Software Shane</title>
+      </Head>
+      <Container className={classes.root}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>Get To Know Me</Paper>
+          </Grid>
+          <Grid item container xs={12}>
+            <Paper className={classes.paper}>
+              <Grid container item xs direction="row">
+                <Grid item xs={4}>
+                  {/* {transitions.map(({ item, props, key }) => (
                 <animated.img
                 key={key}
                 src={item.url}
@@ -99,76 +100,77 @@ const About = () => {
                 className={classes.image}
                 />
               ))} */}
-                <img src="portrait.jpeg" className={classes.image} />
-              </Grid>
-              <Grid
-                item
-                container
-                xs={8}
-                spacing={2}
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item>
-                  <Typography variant="h6">
-                    The name is Shane. I started my software journey in 2019. I
-                    completed Fullstack Academy's immersive bootcamp in 2020. I
-                    previously worked as a fullstack software developer with
-                    Awesemo. I am currently seeking roles in the Los Angeles
-                    area! In my free time, I enjoy being outdoors! Want to chat?
-                    Let'd do it!
-                  </Typography>
+                  <img src="portrait.jpeg" className={classes.image} />
                 </Grid>
-                <Grid container justify="center" item>
+                <Grid
+                  item
+                  container
+                  xs={8}
+                  spacing={2}
+                  justify="center"
+                  alignItems="center"
+                >
                   <Grid item>
-                    {' '}
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      target="_top"
-                      rel="noopener noreferrer"
-                      href={`mailto:shanep.sween@gmail.com`}
-                      className={classes.button}
-                      startIcon={<EmailIcon />}
-                    >
-                      shanep.sween@gmail.com
-                    </Button>
+                    <Typography variant="h6">
+                      The name is Shane. I started my software journey in 2019.
+                      I completed Fullstack Academy's immersive bootcamp in
+                      2020. I previously worked as a fullstack software
+                      developer with Awesemo. I am currently seeking roles in
+                      the Los Angeles area! In my free time, I enjoy being
+                      outdoors! Want to chat? Let'd do it!
+                    </Typography>
                   </Grid>
-                  <Grid item>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      className={classes.button}
-                      startIcon={<PhonelinkRingIcon />}
-                    >
-                      (773) 456-9892
-                    </Button>
+                  <Grid container justify="center" item>
+                    <Grid item>
+                      {' '}
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        target="_top"
+                        rel="noopener noreferrer"
+                        href={`mailto:shanep.sween@gmail.com`}
+                        className={classes.button}
+                        startIcon={<EmailIcon />}
+                      >
+                        shanep.sween@gmail.com
+                      </Button>
+                    </Grid>
+                    <Grid item>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        className={classes.button}
+                        startIcon={<PhonelinkRingIcon />}
+                      >
+                        (773) 456-9892
+                      </Button>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid container spacing={2} item justify="center">
-                  {icons.map((icon) => (
-                    <Fragment key={icon.name}>
-                      <Grid item>
-                        <Tooltip title={icon.name}>
-                          <Avatar
-                            alt="icon"
-                            variant="square"
-                            sizes="lg"
-                            src={icon.url}
-                          />
-                        </Tooltip>
-                      </Grid>
-                    </Fragment>
-                  ))}
+                  <Grid container spacing={2} item justify="center">
+                    {icons.map((icon) => (
+                      <Fragment key={icon.name}>
+                        <Grid item>
+                          <Tooltip title={icon.name}>
+                            <Avatar
+                              alt="icon"
+                              variant="square"
+                              sizes="lg"
+                              src={icon.url}
+                            />
+                          </Tooltip>
+                        </Grid>
+                      </Fragment>
+                    ))}
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          </Paper>
+            </Paper>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </>
   )
 }
 
