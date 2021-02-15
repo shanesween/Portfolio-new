@@ -1,13 +1,13 @@
 export const projectsConfig = [
     {
-        name: 'OddsShopper by Awesemo.com',
+        name: 'OddsShopper',
         route: '/projects/odds-shopper',
         githubUrl: '',
         demoUrl: '',
         image: '/projects/odds-shopper/logo.png',
         imageArr: ['/projects/odds-shopper/home.png', '/projects/odds-shopper/header.png', '/projects/odds-shopper/odds.png', '/projects/odds-shopper/modal.png', '/projects/odds-shopper/gamepage-1.png', '/projects/odds-shopper/gamepage-2.png', '/projects/odds-shopper/gamepage-3.png'],
         descriptionBrief: 'The #1 bet shopping tool in the world',
-        descriptionLong: 'A user can view various bet types for a number of the world’s biggest sports leagues and compare odds across sportsbooks in states where sports betting is legal. A user can also filter for specific players/teams and sportsbooks. In the header navigation, a user can view recent scores and matchups, bet types, and sportsbook offers. On the game page, a user can find a breadth of statistics about a matchup. OddShopper is built using React, Redux, TypeScript, Webpack, Node, Express, and C# (.NET).',
+        descriptionLong: 'Built by Awesemo.com. A user can view various bet types for a number of the world’s biggest sports leagues and compare odds across sportsbooks in states where sports betting is legal. A user can also filter for specific players/teams and sportsbooks. In the header navigation, a user can view recent scores and matchups, bet types, and sportsbook offers. On the game page, a user can find a breadth of statistics about a matchup. OddShopper is built using React, Redux, TypeScript, Webpack, Node, Express, and C# (.NET).',
         tools: [
             { name: 'React', url: '/dev/react.svg' },
             { name: 'Redux', url: '/dev/redux.svg' },

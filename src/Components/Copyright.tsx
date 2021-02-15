@@ -4,9 +4,13 @@ import MuiLink from '@material-ui/core/Link'
 
 export default function Copyright() {
   return (
-    <Typography variant="body2" align="center">
+    <Typography gutterBottom color="secondary" variant="body2" align="center">
       {'Copyright © '}
-      <MuiLink color="inherit" href="https://material-ui.com/">
+      <MuiLink
+        color="primary"
+        target="_blank"
+        href="https://github.com/shanesween"
+      >
         Software Shane
       </MuiLink>{' '}
       {new Date().getFullYear()}

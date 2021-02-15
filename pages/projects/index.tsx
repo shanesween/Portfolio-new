@@ -25,8 +25,9 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   cardContainer: {
-    maxWidth: 345,
+    maxWidth: 344,
     margin: '3rem auto',
+    height: '75%',
   },
   paper: {
     padding: theme.spacing(1),
@@ -38,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cardImage: {
     objectFit: 'contain',
+  },
+  description: {
+    height: 44,
   },
   toolContainer: {
     display: 'flex',
@@ -67,10 +71,12 @@ const Projects = () => {
                 {project.name}
               </Typography>
               <Typography
+                className={classes.description}
                 gutterBottom
                 variant="body2"
                 color="textSecondary"
                 component="p"
+                paragraph={true}
               >
                 {project.descriptionBrief}
               </Typography>

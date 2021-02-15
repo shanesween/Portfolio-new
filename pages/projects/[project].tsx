@@ -60,7 +60,7 @@ const ProjectDetails = () => {
                   <Image
                     src={i}
                     layout="responsive"
-                    width={762}
+                    width={700}
                     height={300}
                     alt="slide"
                   />
