@@ -44,11 +44,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  linkContainer: {
-    '&:hover': {
-      textDecoration: 'none',
-    },
-  },
 }))
 
 const Projects = () => {
@@ -57,11 +52,7 @@ const Projects = () => {
   const projectCard = (project, i) => (
     <Grid item xs={12} sm={8} md={4} key={i}>
       <Card raised className={classes.cardContainer}>
-        <Link
-          as={`${project.route}`}
-          href="projects/[project]"
-          // className={classes.linkContainer}
-        >
+        <Link as={`${project.route}`} href="projects/[project]">
           <CardActionArea>
             <CardMedia
               component="img"
