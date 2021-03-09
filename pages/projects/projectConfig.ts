@@ -1,4 +1,4 @@
-export const projectsConfig = [
+const projectsConfig = [
     {
         name: 'OddsShopper',
         route: '/projects/odds-shopper',
@@ -51,3 +51,5 @@ export const projectsConfig = [
     //     ],
     // },
 ]
+
+export default projectsConfig
