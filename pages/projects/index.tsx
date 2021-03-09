@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core'
 // import Link from '../../src/Link'
 import Link from 'next/link'
-import projectsConfig from './projectConfig'
+import projectsConfig from '../../src/Config/projectConfig'
 
 const useStyles = makeStyles((theme) => ({
   root: {
