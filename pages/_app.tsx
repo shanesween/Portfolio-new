@@ -5,8 +5,6 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { theme } from '../src/Material/theme'
 import Layout from '../src/Layout'
-import Particles from 'react-tsparticles'
-import particlesConfig from '../src/Config/particlesConfig'
 
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props

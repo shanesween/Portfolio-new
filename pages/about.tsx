@@ -30,9 +30,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   image: {
-    height: 460,
-    width: 400,
-    padding: theme.spacing(2),
+    height: '100%',
+    width: '100%',
+    // padding: theme.spacing(2),
+    borderRadius: 8
   },
   button: {
     margin: theme.spacing(1),
@@ -59,7 +60,7 @@ const icons = [
   { name: 'Firebase', url: '/dev/firebase.svg' },
   { name: 'HTML5', url: '/dev/html5.svg' },
   { name: 'Material-UI', url: '/dev/materialui.svg' },
-  { name: 'Bootstrap', url: '/dev/bootstrap.svg' },
+  { name: 'C# (.NET)', url: '/dev/csharp.svg' },
 ]
 
 const About = () => {
@@ -84,95 +85,78 @@ const About = () => {
         <title>About | Software Shane</title>
       </Head>
       <Container className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>Get To Know Me</Paper>
-          </Grid>
-          <Grid item container xs={12}>
-            <Paper className={classes.paper}>
-              <Grid container item xs direction="row">
-                <Grid item xs={4}>
-                  {/* {transitions.map(({ item, props, key }) => (
-                <animated.img
-                key={key}
-                src={item.url}
-                style={props}
-                className={classes.image}
-                />
-              ))} */}
-                  <img src="portrait.jpeg" className={classes.image} />
-                </Grid>
-                <Grid
-                  item
-                  container
-                  xs={8}
-                  spacing={2}
-                  justify="center"
-                  alignItems="center"
-                >
-                  <Grid item>
-                    <Typography variant="h6">
-                      The name is Shane. I started my software journey in 2019.
-                      I completed Fullstack Academy's immersive bootcamp in
-                      2020. I previously worked as a fullstack software
-                      developer with Awesemo. I am currently seeking roles in
-                      the Los Angeles area! In my free time, I enjoy being
-                      outdoors! Want to chat? Let'd do it!
+        <Paper className={classes.paper}>
+          <Grid container item xs spacing={3} direction="row">
+            <Grid item xs={4}>
+              <img src="portrait.jpeg" className={classes.image} />
+            </Grid>
+            <Grid
+              item
+              container
+              xs={8}
+              justify="center"
+              alignItems="center"
+            >
+              <Grid item>
+                <Typography variant="h6">
+                  The name is Shane. I started my software journey in 2019.
+                  I completed Fullstack Academy's immersive bootcamp in
+                  2020. I previously worked as a fullstack software
+                  developer with Awesemo. I am currently seeking roles in
+                  the Los Angeles area! In my free time, I enjoy being
+                  outdoors! Want to chat? Let's do it!
                     </Typography>
-                  </Grid>
-                  <Grid container justify="center" item>
-                    <Grid item>
-                      {' '}
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        target="_top"
-                        rel="noopener noreferrer"
-                        href={`mailto:shanep.sween@gmail.com`}
-                        className={classes.button}
-                        startIcon={<EmailIcon />}
-                      >
-                        shanep.sween@gmail.com
+              </Grid>
+              <Grid container item justify="center">
+                <Grid item>
+                  {' '}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    target="_top"
+                    rel="noopener noreferrer"
+                    href={`mailto:shanep.sween@gmail.com`}
+                    className={classes.button}
+                    startIcon={<EmailIcon />}
+                  >
+                    shanep.sween@gmail.com
                       </Button>
-                    </Grid>
-                    <Grid item>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        className={classes.button}
-                        startIcon={<PhonelinkRingIcon />}
-                      >
-                        (773) 456-9892
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button}
+                    startIcon={<PhonelinkRingIcon />}
+                  >
+                    (773) 456-9892
                       </Button>
-                    </Grid>
-                  </Grid>
-                  <Grid container spacing={2} item justify="center">
-                    {icons.map((icon) => (
-                      <Fragment key={icon.name}>
-                        <Grid item>
-                          <Tooltip title={icon.name}>
-                            <Avatar
-                              alt="icon"
-                              variant="square"
-                              sizes="lg"
-                              src={icon.url}
-                            />
-                          </Tooltip>
-                        </Grid>
-                      </Fragment>
-                    ))}
-                  </Grid>
                 </Grid>
               </Grid>
-            </Paper>
+              <Grid container item justify="center" spacing={2}>
+                {icons.map((icon) => (
+                  <Fragment key={icon.name}>
+                    <Grid item>
+                      <Tooltip title={icon.name}>
+                        <Avatar
+                          alt="icon"
+                          variant="square"
+                          sizes="lg"
+                          src={icon.url}
+                        />
+                      </Tooltip>
+                    </Grid>
+                  </Fragment>
+                ))}
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
+        </Paper>
       </Container>
     </>
   )
 }
 
 export default About
-function newFunction() {}
