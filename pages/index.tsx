@@ -4,21 +4,21 @@ import Particles from 'react-tsparticles'
 import Header from '../src/Components/Header'
 import particlesConfig from '../src/Config/particlesConfig'
 
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       height: '90vh'
-//     }
-//   }))
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      height: '86vh'
+    }
+  }))
 
 const Index = () => {
-  // const classes = useStyles()
+  const classes = useStyles()
 
   return (
-    <>
-      <Particles options={particlesConfig} />
+    <div className={classes.root}>
+      <Particles height="86vh" width="100vw" options={particlesConfig} />
       <Header />
-    </>
+    </div>
   )
 }
 

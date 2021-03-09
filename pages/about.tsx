@@ -1,26 +1,28 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import Container from '@material-ui/core/Container'
 import {
   Avatar,
   Button,
-  Chip,
   Grid,
   Hidden,
   makeStyles,
   Paper,
+  Snackbar,
+  Theme,
   Tooltip,
   Typography,
 } from '@material-ui/core'
-// import CrossfadeImage from '../src/Crossfade/index'
-// import { useTransition, animated, config } from 'react-spring'
 import PhonelinkRingIcon from '@material-ui/icons/PhonelinkRing'
 import EmailIcon from '@material-ui/icons/Email'
 import Head from 'next/head'
+import MuiAlert from '@material-ui/lab/Alert';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
   },
   paper: {
     textAlign: 'center',
@@ -62,13 +64,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-// const images = [
-//   { id: 0, url: '/portrait.jpeg' },
-//   { id: 2, url: '/golf.jpeg' },
-//   { id: 3, url: '/mountain.jpeg' },
-//   { id: 4, url: 'beer.jpeg' },
-// ]
-
 const languageIcons = [
   { name: 'JavaScript', url: '/dev/js.svg' },
   { name: 'TypeScript', url: '/dev/typescript.svg' },
@@ -94,21 +89,22 @@ const databaseIcons = [
   { name: 'MS SQL Server', url: '/dev/microsoftsqlserver.svg' },
 ]
 
+const Alert = (props) => {
+  return <MuiAlert elevation={6} variant="filled" {...props} />
+}
+
 const About = () => {
   const classes = useStyles()
-  // const [index, set] = useState(0)
+  const [copied, isCopied] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  // const transitions = useTransition(images[index], (item) => item.id, {
-  //   from: { opacity: 0, position: 'absolute' },
-  //   enter: { opacity: 1 },
-  //   leave: { opacity: 0 },
-  //   config: config.molasses,
-  // })
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
 
-  // useEffect(
-  //   () => void setInterval(() => set((state) => (state + 1) % 4), 10000),
-  //   [set],
-  // )
+    setOpen(false);
+  };
 
   return (
     <>
@@ -147,22 +143,39 @@ const About = () => {
               </Grid>
               <Grid container item justify="center">
                 <Grid item>
-                  {' '}
-                  <Chip
-                    avatar={<Avatar><EmailIcon /></Avatar>}
-                    label="shanep.sween@gmail.com"
-                    color="primary"
-                    className={classes.button}
-                  />
-
+                  <CopyToClipboard text={'shanep.sween@gmail.com'} onCopy={() => {
+                    isCopied(true)
+                    setOpen(true)
+                  }}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      startIcon={<EmailIcon />}
+                    >
+                      shanep.sween@gmail.com
+                  </Button>
+                  </CopyToClipboard>
                 </Grid>
                 <Grid item>
-                  <Chip
-                    avatar={<Avatar><PhonelinkRingIcon /></Avatar>}
-                    label="(773) 456-9892"
-                    color="primary"
-                    className={classes.button}
-                  />
+                  <CopyToClipboard text={'773-456-9892'} onCopy={() => {
+                    isCopied(true)
+                    setOpen(true)
+                  }}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      startIcon={<PhonelinkRingIcon />}
+                    >
+                      (773) 456-9892
+                  </Button>
+                  </CopyToClipboard>
+                  <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{ vertical: "top", horizontal: "center" }}>
+                    <Alert icon={<FileCopyIcon fontSize="inherit" />} severity="success">
+                      Copied!
+                    </Alert>
+                  </Snackbar>
                 </Grid>
               </Grid>
               <Grid container item justify="center" spacing={2}>
