@@ -20,7 +20,10 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
     },
     paperContainer: {
-      width: '75%',
+      width: '50%',
+      [theme.breakpoints.down('sm')]: {
+        width: '100%'
+      }
     },
     titleRow: {
       display: 'flex',
@@ -56,15 +59,14 @@ const ProjectDetails = () => {
           <Carousel swipe={true} navButtonsAlwaysVisible={true}>
             {current?.imageArr?.map((i) => (
               <Fragment key={i}>
-                <Paper>
+                <Box component="div" style={{ width: '300px', height: '500px' }}>
                   <Image
                     src={i}
-                    layout="responsive"
-                    width={700}
-                    height={300}
+                    layout="fill"
+                    objectFit="contain"
                     alt="slide"
                   />
-                </Paper>
+                </Box>
               </Fragment>
             ))}
           </Carousel>
