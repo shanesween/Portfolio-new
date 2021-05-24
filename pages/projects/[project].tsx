@@ -43,7 +43,7 @@ const ProjectDetails = () => {
   const classes = useStyles()
   const router = useRouter()
 
-  const current = projectsConfig.find((p) => p.route === router.asPath)
+  const current: IProject = projectsConfig.find((p) => p.route === router.asPath)
 
   return (
     <Box component="div" className={classes.root}>

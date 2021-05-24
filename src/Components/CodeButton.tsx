@@ -24,13 +24,15 @@ const CodeButton = (props: Props) => {
     const { project } = props
 
     return (
-        <Box className={classes.codeButton}>
-            <Button variant="contained">
-                <a className={classes.link} target="_blank" href={project.githubUrl.length ? project.githubUrl : project.productionUrl.length && project.productionUrl}>
-                    {project.githubUrl.length ? "View Source Code" : project.productionUrl.length && "View Production App"}
-                </a>
-            </Button>
-        </Box>
+        project ? (
+            <Box className={classes.codeButton}>
+                <Button variant="contained">
+                    <a className={classes.link} target="_blank" href={project.githubUrl.length ? project.githubUrl : project.productionUrl.length && project.productionUrl}>
+                        {project.githubUrl.length ? "View Source Code" : project.productionUrl.length && "View Production App"}
+                    </a>
+                </Button>
+            </Box>
+        ) : <Box></Box>
     )
 }
 
