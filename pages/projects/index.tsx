@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import {
   Avatar,
+  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -15,6 +16,7 @@ import {
 // import Link from '../../src/Link'
 import Link from 'next/link'
 import projectsConfig from '../../src/Config/projectConfig'
+import CodeButton from '../../src/Components/CodeButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
   cardContainer: {
     maxWidth: 344,
     margin: '3rem auto',
-    height: '75%',
   },
   paper: {
     padding: theme.spacing(1),
@@ -48,13 +49,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+  codeButton: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: theme.spacing(2)
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#000'
+  }
 }))
 
 const Projects = () => {
   const classes = useStyles()
 
   const projectCard = (project, i) => (
-    <Grid item xs={12} sm={8} md={4} key={i}>
+    <Grid container item xs={12} sm={8} md={4} key={i}>
       <Card raised className={classes.cardContainer}>
         <Link as={`${project.route}`} href="projects/[project]">
           <CardActionArea>
@@ -100,6 +110,7 @@ const Projects = () => {
             </CardContent>
           </CardActionArea>
         </Link>
+        <CodeButton project={project} />
       </Card>
     </Grid>
   )

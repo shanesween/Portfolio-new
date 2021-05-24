@@ -8,6 +8,7 @@ import { Box, IconButton, Paper } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import Carousel from 'react-material-ui-carousel'
 import Image from 'next/image'
+import CodeButton from '../../src/Components/CodeButton'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,10 +72,10 @@ const ProjectDetails = () => {
             ))}
           </Carousel>
         </Box>
-
         <Box p={3}>
           <Typography>{current?.descriptionLong}</Typography>
         </Box>
+        <CodeButton project={current} />
       </Paper>
     </Box>
   )
